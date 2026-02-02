@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+
+  name: {{ include "web-app-charts.fullname" . }}-db-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: postgres
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432

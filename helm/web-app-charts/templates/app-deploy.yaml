@@ -24,9 +24,16 @@ spec:
             topologyKey: "kubernetes.io/hostname"
 
       initContainers:
-      - name: wait-for-db
-        image: busybox:1.28
-        command: ['sh', '-c', "until nc -zv {{ include 'web-app-charts.fullname' . }}-db-svc 5432; do echo waiting for db; sleep 2; done;"]
+        - name: wait-for-db
+          image: busybox:1.28
+          command:
+            - sh
+            - -c
+            - |
+              until nc -zv {{ include "web-app-charts.fullname" . }}-db-svc 5432; do
+                echo waiting for db;
+                sleep 2;
+              done;
 
       containers:
       - name: python-app

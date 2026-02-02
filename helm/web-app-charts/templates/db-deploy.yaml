@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-[cite_start]kind: StatefulSet
+kind: StatefulSet
 metadata:
   name: {{ include "web-app-charts.fullname" . }}-db
 spec:
@@ -33,7 +33,7 @@ spec:
         volumeMounts:
         - name: db-data
           mountPath: /var/lib/postgresql/data
-        [cite_start]readinessProbe:
+        readinessProbe:
           exec:
             command: ["pg_isready", "-U", "{{ .Values.postgresql.auth.user }}"]
           initialDelaySeconds: 5

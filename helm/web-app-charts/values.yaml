@@ -1,4 +1,5 @@
-[cite_start]replicaCount: 2
+# values.yaml
+replicaCount: 2
 
 image:
   repository: "krivosoft/finbridge-test-task"
@@ -12,8 +13,9 @@ postgresql:
   auth:
     database: "app_db"
     user: "db_user"
-    password: "" 
+    # Пароль пустой по ТЗ (передается через --set при установке)
+    password: ""
 
 ingress:
   enabled: true
-  [cite_start]host: "app.local"
+  host: "app.local"

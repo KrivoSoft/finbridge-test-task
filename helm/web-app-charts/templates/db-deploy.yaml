@@ -39,6 +39,6 @@ spec:
           initialDelaySeconds: 5
           periodSeconds: 10
 
-  volumes:
-    - name: db-data
-      emptyDir: { }
+      volumes:
+        - name: db-data
+          emptyDir: { }

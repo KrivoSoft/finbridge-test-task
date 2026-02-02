@@ -2,7 +2,7 @@
 replicaCount: 2
 
 image:
-  repository: "krivosoft/finbridge-test-task:latest"
+  repository: "krivosoft/finbridge-test-task"
   tag: "latest"
   pullPolicy: IfNotPresent
 
